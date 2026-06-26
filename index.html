@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)file:///Users/gimseoyeon/Claude/Projects/reference/credo.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAR_T — 국가대표 레퍼런스 체크 전문기관</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./STAR_T _files/css2" rel="stylesheet">
+  <style>
+    /* ── Design Tokens (Hermès Orange) ─────────── */
+    :root {
+      --orange:       #E8712A;
+      --orange-light: #F0924E;
+      --orange-pale:  #FDE8D8;
+      --orange-dark:  #C4571F;
+      --dark:         #180C03;
+      --dark-mid:     #2C1608;
+      --cream:        #FDF8F2;
+      --cream-dark:   #F5E9D8;
+      --ink:          #1C1008;
+      --ink-mid:      #4A3520;
+      --muted:        #9A8070;
+      --white:        #FFFFFF;
+      --gold:         #C49A3C;
+      --radius:       12px;
+      --shadow-sm:    0 2px 12px rgba(24,12,3,.10);
+      --shadow-md:    0 8px 32px rgba(24,12,3,.15);
+      --shadow-lg:    0 20px 60px rgba(24,12,3,.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--cream-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+    /* ── Utility ───────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+    .section-label {
+      display: inline-block; font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: .7rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      line-height: 1.2; color: var(--ink); margin-bottom: 1rem;
+    }
+    .section-title.light { color: var(--white); }
+    .section-desc { font-size: .97rem; line-height: 1.85; color: var(--ink-mid); max-width: 580px; }
+    .section-desc.light { color: rgba(255,255,255,.70); }
+    section { padding: 100px 6%; }
+
+    /* ── NAV ───────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 68px; padding: 0 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .3s, box-shadow .3s;
+    }
+    nav.scrolled { background: rgba(24,12,3,.96); backdrop-filter: blur(14px); box-shadow: 0 2px 24px rgba(0,0,0,.25); }
+
+    .nav-logo { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
+    .logo-icon {
+      width: 38px; height: 38px; background: var(--orange);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-icon svg { width: 26px; height: 26px; }
+    .logo-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem; color: var(--white); letter-spacing: .02em;
+    }
+    .logo-text span { color: var(--orange-light); }
+
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .85rem; font-weight: 500; letter-spacing: .03em; transition: color .2s; }
+    .nav-links a:hover { color: var(--orange-light); }
+    .nav-cta {
+      background: var(--orange) !important; color: var(--white) !important;
+      padding: .48rem 1.2rem; border-radius: 6px; font-weight: 700 !important;
+      transition: background .2s, transform .15s !important;
+    }
+    .nav-cta:hover { background: var(--orange-light) !important; transform: translateY(-1px); }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--orange); color: var(--white);
+      font-family: inherit; font-size: .95rem; font-weight: 700;
+      padding: .85rem 2rem; border-radius: 8px; border: none;
+      text-decoration: none; cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,113,42,.40); }
+    .btn-outline-light {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: transparent; color: var(--white);
+      font-family: inherit; font-size: .95rem; font-weight: 500;
+      padding: .85rem 2rem; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.35); text-decoration: none; cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline-light:hover { border-color: var(--orange-light); background: rgba(232,113,42,.1); }
+
+    /* ── HERO ──────────────────────────────────── */
+    #hero {
+      min-height: 100vh; background: var(--dark); position: relative;
+      overflow: hidden; display: flex; align-items: center; padding: 0 6%;
+      padding-top: 68px;
+    }
+    /* warm tone blobs */
+    .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .14; animation: drift 16s ease-in-out infinite alternate; }
+    .blob-1 { width: 500px; height: 500px; background: var(--orange); top: -80px; right: -60px; animation-delay: 0s; }
+    .blob-2 { width: 340px; height: 340px; background: var(--orange-dark); bottom: -40px; left: 5%; animation-delay: -7s; }
+    .blob-3 { width: 220px; height: 220px; background: #C49A3C; top: 40%; left: 40%; animation-delay: -11s; }
+    @keyframes drift { to { transform: translate(50px, -40px) scale(1.1); } }
+
+    /* geometric lines */
+    .geo-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(232,113,42,.18); animation: spin linear infinite; }
+    .geo-1 { width: 400px; height: 400px; top: 8%; right: 4%; animation-duration: 60s; }
+    .geo-2 { width: 220px; height: 220px; top: 16%; right: 12%; animation-duration: 40s; animation-direction: reverse; }
+    .geo-3 { width: 90px; height: 90px; bottom: 18%; left: 6%; border-radius: 0; animation-duration: 28s; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(232,113,42,.15); border: 1px solid rgba(232,113,42,.40);
+      color: var(--orange-light); font-size: .75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .4rem 1rem; border-radius: 50px; margin-bottom: 1.4rem;
+    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+
+    /* Rotating tagline */
+    .rotating-wrap { margin-bottom: 2rem; min-height: 2.2em; }
+    .rotating-tagline {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      color: var(--orange-light);
+      font-style: italic;
+      transition: opacity .4s;
+    }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 1.1; color: var(--white); margin-bottom: 1.4rem;
+    }
+    .hero-title em { font-style: italic; color: var(--orange-light); }
+    .hero-subtitle { font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,.65); max-width: 520px; margin-bottom: 2.4rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .scroll-hint { position: absolute; bottom: 2.5rem; left: 6%; display: flex; flex-direction: column; align-items: center; gap: .5rem; color: rgba(255,255,255,.35); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+    .scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(232,113,42,.6), transparent); animation: dropLine 2.2s ease-in-out infinite; }
+    @keyframes dropLine { 0%,100% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } }
+
+    /* ── TRUST BAR ─────────────────────────────── */
+    #trust-bar { background: var(--white); padding: 2rem 6%; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 1.5rem; border-bottom: 1px solid var(--cream-dark); box-shadow: var(--shadow-sm); }
+    .trust-item { display: flex; flex-direction: column; align-items: center; gap: .3rem; }
+    .trust-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--orange); line-height: 1; }
+    .trust-label { font-size: .75rem; color: var(--muted); letter-spacing: .05em; font-weight: 500; }
+    .trust-divider { width: 1px; height: 44px; background: var(--cream-dark); }
+
+    /* ── ABOUT ─────────────────────────────────── */
+    #about { background: var(--cream); }
+    .about-intro { max-width: 760px; margin-bottom: 4rem; }
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .about-card {
+      background: var(--white); border-radius: var(--radius); padding: 2rem;
+      border-left: 4px solid var(--orange-pale);
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      box-shadow: var(--shadow-sm);
+    }
+    .about-card:hover { border-left-color: var(--orange); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .about-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--orange-pale); margin-bottom: .6rem; line-height: 1; }
+    .about-card:hover .about-num { color: var(--orange-light); }
+    .about-head { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: .5rem; }
+    .about-text { font-size: .85rem; line-height: 1.8; color: var(--muted); }
+
+    /* ── PRODUCTS ──────────────────────────────── */
+    #products { background: var(--white); }
+    .products-intro { max-width: 760px; margin-bottom: 3rem; }
+    .products-subtitle { font-size: .85rem; color: var(--muted); margin-top: .4rem; font-style: italic; }
+
+    .pyramid-grid {
+      display: flex; flex-direction: column; gap: 0;
+      max-width: 860px; margin: 0 auto;
+    }
+    .product-row {
+      display: flex; align-items: stretch;
+      border-bottom: 1px solid var(--cream-dark);
+      transition: background .2s;
+    }
+    .product-row:first-child { background: var(--orange); border-radius: var(--radius) var(--radius) 0 0; }
+    .product-row:first-child .prod-name,
+    .product-row:first-child .prod-grade,
+    .product-row:first-child .prod-price,
+    .product-row:first-child .prod-days,
+    .product-row:first-child .prod-method { color: var(--white) !important; border-color: rgba(255,255,255,.2) !important; }
+    .product-row:last-child { border-radius: 0 0 var(--radius) var(--radius); border-bottom: none; }
+    .product-row:not(:first-child):hover { background: var(--cream); }
+
+    .prod-badge {
+      width: 90px; flex-shrink: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 1.2rem .8rem; border-right: 1px solid var(--cream-dark);
+    }
+    .product-row:first-child .prod-badge { border-color: rgba(255,255,255,.2); }
+    .prod-badge-name {
+      font-family: 'DM Serif Display', serif; font-size: 1rem;
+      color: var(--orange); font-weight: 700; letter-spacing: .05em;
+    }
+    .product-row:first-child .prod-badge-name { color: var(--white); }
+    .prod-badge-icon { font-size: 1.3rem; margin-bottom: .3rem; }
+
+    .prod-main { flex: 1; padding: 1.2rem 1.5rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--cream-dark); }
+    .product-row:first-child .prod-main { border-color: rgba(255,255,255,.2); }
+    .prod-name { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: .25rem; }
+    .prod-grade { font-size: .8rem; color: var(--muted); }
+
+    .prod-price { width: 100px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--orange-dark); font-weight: 700; border-right: 1px solid var(--cream-dark); padding: 0 .8rem; }
+    .product-row:first-child .prod-price { border-color: rgba(255,255,255,.2); }
+    .prod-days { width: 64px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: .8rem; color: var(--muted); border-right: 1px solid var(--cream-dark); }
+    .product-row:first-child .prod-days { border-color: rgba(255,255,255,.2); }
+    .prod-days strong { font-size: 1rem; color: var(--ink); }
+    .product-row:first-child .prod-days strong { color: var(--white); }
+    .prod-method { flex: 1.2; padding: 1rem 1.2rem; font-size: .78rem; line-height: 1.7; color: var(--muted); display: flex; align-items: center; }
+    .product-row:first-child .prod-method { color: rgba(255,255,255,.80); }
+
+    .products-note { margin-top: 1rem; font-size: .78rem; color: var(--muted); font-style: italic; }
+
+    /* ── PROCESS ───────────────────────────────── */
+    #process { background: var(--orange); position: relative; overflow: hidden; }
+    #process .section-title { color: var(--white); }
+    #process .section-label { color: rgba(255,255,255,.7); }
+    .process-intro { max-width: 680px; margin-bottom: 3.5rem; }
+    .process-intro p { color: rgba(255,255,255,.70); font-size: .97rem; line-height: 1.8; }
+
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+      background: rgba(255,255,255,.15); border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .step-card { background: rgba(255,255,255,.08); padding: 1.8rem 1.2rem; transition: background .2s; cursor: default; }
+    .step-card:hover { background: rgba(255,255,255,.16); }
+    .step-num-badge {
+      width: 36px; height: 36px; background: rgba(255,255,255,.18);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--white);
+      margin-bottom: 1rem; transition: background .2s;
+    }
+    .step-card:hover .step-num-badge { background: rgba(255,255,255,.35); }
+    .step-name { font-size: .85rem; font-weight: 700; color: var(--white); margin-bottom: .4rem; }
+    .step-desc { font-size: .75rem; line-height: 1.65; color: rgba(255,255,255,.60); }
+    .step-keyword { display: inline-block; margin-top: .5rem; font-size: .68rem; font-weight: 700; letter-spacing: .08em; color: rgba(255,255,255,.45); text-transform: uppercase; }
+
+    .process-terms { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
+    .process-term { font-size: .78rem; color: rgba(255,255,255,.55); }
+    .process-term strong { color: rgba(255,255,255,.85); }
+
+    /* ── TESTIMONIALS ──────────────────────────── */
+    #testimonials { background: var(--cream); }
+    .testimonials-intro { max-width: 680px; margin-bottom: 3.5rem; }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem;
+    }
+    .testimonial-card {
+      background: var(--white); border-radius: var(--radius); padding: 1.8rem;
+      box-shadow: var(--shadow-sm); position: relative;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .testimonial-card::before {
+      content: '"'; font-family: 'DM Serif Display', serif;
+      position: absolute; top: .8rem; left: 1.2rem;
+      font-size: 3.5rem; color: var(--orange-pale); line-height: 1;
+    }
+    .testi-text { font-size: .88rem; line-height: 1.8; color: var(--ink-mid); padding-top: 1.8rem; margin-bottom: 1rem; font-style: italic; }
+    .testi-from { font-size: .75rem; font-weight: 700; color: var(--orange); letter-spacing: .05em; }
+
+    /* ── INQUIRY ───────────────────────────────── */
+    #inquiry { background: var(--dark); position: relative; overflow: hidden; }
+    #inquiry .section-title { color: var(--white); }
+    #inquiry .section-label { color: var(--orange-light); }
+    .inquiry-wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; position: relative; z-index: 2; }
+
+    .inquiry-info { padding-top: .5rem; }
+    .inquiry-desc { font-size: .95rem; line-height: 1.85; color: rgba(255,255,255,.60); margin-bottom: 2rem; max-width: 440px; }
+
+    .kakao-btn {
+      display: inline-flex; align-items: center; gap: .7rem;
+      background: #FEE500; color: #3A1D1D;
+      font-family: inherit; font-size: .95rem; font-weight: 700;
+      padding: .9rem 1.6rem; border-radius: 8px; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      margin-bottom: 2rem;
+    }
+    .kakao-btn:hover { background: #FFD000; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(254,229,0,.35); }
+    .kakao-icon { width: 22px; height: 22px; }
+
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: .9rem; }
+    .contact-list li { display: flex; align-items: center; gap: .8rem; font-size: .87rem; color: rgba(255,255,255,.60); }
+    .contact-list .ci { width: 32px; height: 32px; background: rgba(232,113,42,.15); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; }
+
+    .form-card { background: var(--white); border-radius: 16px; padding: 2.6rem; box-shadow: var(--shadow-lg); }
+    .form-title { font-family: 'Noto Serif KR', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 1.5rem; }
+
+    .type-tabs { display: flex; gap: .5rem; margin-bottom: 1.5rem; }
+    .type-tab { flex: 1; padding: .6rem; border-radius: 7px; border: 1.5px solid var(--cream-dark); background: var(--cream); font-family: inherit; font-size: .88rem; font-weight: 700; color: var(--muted); cursor: pointer; transition: all .2s; text-align: center; }
+    .type-tab.active { border-color: var(--orange); background: var(--orange); color: var(--white); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; margin-bottom: .9rem; }
+    .form-group { margin-bottom: .9rem; }
+    .form-group label { display: block; font-size: .74rem; font-weight: 700; color: var(--ink-mid); letter-spacing: .06em; text-transform: uppercase; margin-bottom: .4rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: .72rem 1rem; border: 1.5px solid var(--cream-dark);
+      border-radius: 7px; font-family: inherit; font-size: .88rem; color: var(--ink);
+      background: var(--cream); outline: none; transition: border-color .2s, background .2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); background: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .submit-btn { width: 100%; padding: .95rem; background: var(--orange); color: var(--white); font-family: inherit; font-size: .95rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: background .2s, transform .15s; letter-spacing: .03em; margin-top: .4rem; }
+    .submit-btn:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+    .form-success { display: none; text-align: center; padding: 2.5rem 1rem; }
+    .form-success.show { display: block; }
+    .success-icon { font-size: 2.8rem; margin-bottom: .8rem; }
+    .success-msg { font-size: 1rem; color: var(--orange-dark); font-weight: 700; line-height: 1.6; }
+
+    /* ── FLOATING ELEMENTS ─────────────────────── */
+    .float-kakao {
+      position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 150;
+      background: #FEE500; color: #3A1D1D;
+      font-weight: 700; font-size: .82rem;
+      padding: .8rem 1.3rem; border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,.25);
+      display: flex; align-items: center; gap: .5rem;
+      opacity: 0; transform: translateY(20px); pointer-events: none;
+      transition: opacity .3s, transform .3s;
+    }
+    .float-kakao.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .float-kakao:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,.3); }
+
+    /* ── FOOTER ────────────────────────────────── */
+    footer { background: #0F0703; padding: 3.5rem 6% 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .footer-logo-wrap { display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; }
+    .footer-tagline { font-size: .85rem; line-height: 1.8; color: rgba(255,255,255,.45); margin-bottom: 1.2rem; }
+    .footer-company { font-size: .78rem; color: rgba(255,255,255,.35); line-height: 1.9; }
+    .footer-company strong { color: rgba(255,255,255,.55); }
+    .footer-col h5 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: .9rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .55rem; }
+    .footer-col ul li a { text-decoration: none; color: rgba(255,255,255,.45); font-size: .83rem; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--orange-light); }
+
+    .footer-bottom { padding: 1.5rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: .74rem; color: rgba(255,255,255,.25); }
+    .footer-badge { font-size: .7rem; background: rgba(232,113,42,.12); border: 1px solid rgba(232,113,42,.25); color: var(--orange-light); padding: .25rem .8rem; border-radius: 50px; }
+
+    /* ── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 1100px) {
+      .steps-grid { grid-template-columns: repeat(3, 1fr); }
+      .inquiry-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      #hero { padding: 90px 4% 0; }
+      section { padding: 70px 4%; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .prod-method { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .trust-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ═════════════════════════════════════════ -->
+<nav id="navbar" class="scrolled">
+  <a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#" class="nav-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Star shape -->
+        <polygon points="13,1 15.6,9 24,9 17.4,14.4 19.8,22.5 13,17.5 6.2,22.5 8.6,14.4 2,9 10.4,9" fill="white" opacity="0.9"></polygon>
+        <!-- Magnifying glass circle -->
+        <circle cx="12" cy="12" r="5.5" fill="none" stroke="#E8712A" stroke-width="1.8"></circle>
+        <!-- Handle -->
+        <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="#E8712A" stroke-width="2.2" stroke-linecap="round"></line>
+      </svg>
+    </div>
+    <span class="logo-text">STAR<span>_T</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#about">회사소개</a></li>
+    <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#products">상품안내</a></li>
+    <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#process">프로세스</a></li>
+    <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#testimonials">고객후기</a></li>
+    <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#inquiry" class="nav-cta">의뢰하기</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════ -->
+<section id="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="geo-ring geo-1"></div>
+  <div class="geo-ring geo-2"></div>
+  <div class="geo-ring geo-3"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">National Reference Check</div>
+
+    <div class="rotating-wrap">
+      <div class="rotating-tagline" id="rotatingTagline" style="opacity: 1;">"국내 최고 수준의 신뢰도 검증 시스템 'Agre' 독자 개발"</div>
+    </div>
+
+    <h1 class="hero-title">
+      채용 전, 투자 전<br>
+      <em>진실을 먼저</em><br>검증합니다.
+    </h1>
+    <p class="hero-subtitle">
+      국가정보수사기관 출신 전문 IO들이 직접 수행하는 대한민국 대표 레퍼런스 체크.
+      숨소리의 간격, 행간의 뉘앙스까지 읽어냅니다.
+    </p>
+    <div class="hero-actions">
+      <a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#inquiry" class="btn-primary">
+        <span>서비스 의뢰하기</span><span>→</span>
+      </a>
+      <a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#products" class="btn-outline-light">
+        <span>상품 알아보기</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ════════════════════════════════════ -->
+<div id="trust-bar">
+  <div class="trust-item">
+    <div class="trust-num"><span class="count" data-target="1200">1200</span>+</div>
+    <div class="trust-label">누적 레퍼런스 체크</div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-num"><span class="count" data-target="20">20</span>년+</div>
+    <div class="trust-label">국가기관 신원조사 경력</div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-num"><span class="count" data-target="97">97</span>%</div>
+    <div class="trust-label">평균 신뢰도 판정률</div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-num"><span class="count" data-target="5">5</span>일</div>
+    <div class="trust-label">평균 회보서 납기</div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-num"><span class="count" data-target="100">100</span>%</div>
+    <div class="trust-label">완전 기밀 보장</div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-intro">
+    <div class="section-label reveal visible">About STAR_T</div>
+    <h2 class="section-title reveal reveal-delay-1 visible">㈜장군평판은 다릅니다</h2>
+    <p class="section-desc reveal reveal-delay-2 visible">
+      국가정보수사기관 출신 베테랑 요원들로 구성된 대한민국 유일의 국가대표 레퍼런스 체크 전문기관.
+      20년 이상 軍 장성 등 고위공직자 신원조사 노하우를 민간 부문에 그대로 적용합니다.
+    </p>
+  </div>
+  <div class="about-grid">
+    <div class="about-card reveal reveal-delay-1 visible">
+      <div class="about-num">01</div>
+      <div class="about-head">국가기관급 요원들로 구성</div>
+      <p class="about-text">10여 년 이상 軍 장성 등 고위공직자 신원조사를 직접 담당한 최고 요원들이 민간 평판조회를 수행합니다. 그저그런 평판조회 회사와 출발선이 다릅니다.</p>
+    </div>
+    <div class="about-card reveal reveal-delay-2 visible">
+      <div class="about-num">02</div>
+      <div class="about-head">독보적인 현장 전문성</div>
+      <p class="about-text">단순 설문기법에서 출발한 타사와 달리, 신원조사 현장 경력 10년 이상 된 인원들로 구성되어 있습니다. 차별화된 보고서 품질과 방대한 인적 네트워크가 증거입니다.</p>
+    </div>
+    <div class="about-card reveal reveal-delay-3 visible">
+      <div class="about-num">03</div>
+      <div class="about-head">똑같은 숨소리도 다르게 분석</div>
+      <p class="about-text">국가 신원검증기관에서 인정받은 차별화된 보고서 품질. 숨소리의 간격과 행간의 뉘앙스를 읽어내는 전문성으로 한차원 높은 인재검증 시스템을 제공합니다.</p>
+    </div>
+    <div class="about-card reveal reveal-delay-1 visible">
+      <div class="about-num">04</div>
+      <div class="about-head">AI 평판검증 시스템 'Agre' 독자 개발</div>
+      <p class="about-text">AI-딥러닝 기술로 개발한 ㈜장군평판 고유의 평판검증 시스템 'Agre'(Agrément). 베테랑 요원들의 축적된 DB와 경험치가 어우러져 신뢰성 높은 인재를 발굴합니다.</p>
+    </div>
+    <div class="about-card reveal reveal-delay-2 visible">
+      <div class="about-num">05</div>
+      <div class="about-head">면접은 속여도 평판조회는 못 속인다</div>
+      <p class="about-text">면접의 순간은 휘황찬란한 언어로 속일 수 있습니다. 그러나 다면적 평가와 행간의 뉘앙스를 읽어내는 평판조회의 깊이는 결코 속일 수 없습니다.</p>
+    </div>
+    <div class="about-card reveal reveal-delay-3 visible">
+      <div class="about-num">06</div>
+      <div class="about-head">레퍼런스 체크 본질에 충실</div>
+      <p class="about-text">의미 불명한 나열식 질문을 필터링 없이 전달하는 타 업체와 달리, 기업이 요구한 목적에 부합된 날카롭고 간결한 고도의 분석으로 만족도를 향상시킵니다.</p>
+    </div>
+    <div class="about-card reveal reveal-delay-1 visible" style="grid-column: 1 / -1;">
+      <div class="about-num">07</div>
+      <div class="about-head">세상엔 공짜 없고, 저렴한 데는 다 그만한 이유가 있습니다</div>
+      <p class="about-text">그럴 듯 하지만 전혀 그렇지 않은 저렴한 평판조회 보고서와 달리 실제 활용할 수 있는 항목 위주로 검증합니다. 비싸지도 않지만 내실 있는 평판조회를 위한 적정 수수료와 그에 걸맞는 질 높은 회보서로 보답합니다. 썩은 사과 하나가 상자 안의 모든 사과를 썩게 만들 수는 없습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTS ══════════════════════════════════════ -->
+<section id="products">
+  <div class="products-intro">
+    <div class="section-label reveal visible">Service Lineup</div>
+    <h2 class="section-title reveal reveal-delay-1 visible">상품 소개</h2>
+    <p class="section-desc reveal reveal-delay-2 visible">직급과 연봉 수준에 맞는 검증 깊이를 선택하세요. HERO부터 SOLDIER까지, 모든 계층의 인재를 검증합니다.</p>
+    <p class="products-subtitle reveal reveal-delay-3 visible">* 첫 거래 및 年 단위 계약 또는 1회 20명 이상 의뢰 시 비용 별도 협의</p>
+  </div>
+
+  <div class="pyramid-grid reveal reveal-delay-2 visible">
+    <!-- Header -->
+    <div class="product-row" style="background:var(--ink); border-radius: var(--radius) var(--radius) 0 0;">
+      <div class="prod-badge" style="border-color:rgba(255,255,255,.1);">
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.5);text-transform:uppercase;">상품</span>
+      </div>
+      <div class="prod-main" style="border-color:rgba(255,255,255,.1);">
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.5);text-transform:uppercase;">권장 타겟</span>
+      </div>
+      <div class="prod-price" style="font-size:.72rem;font-weight:700;letter-spacing:.05em;color:rgba(255,255,255,.5);font-family:inherit;border-color:rgba(255,255,255,.1);">비용</div>
+      <div class="prod-days" style="border-color:rgba(255,255,255,.1);">
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.05em;color:rgba(255,255,255,.5);">기간</span>
+      </div>
+      <div class="prod-method" style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.5);text-transform:uppercase;">조사 방식</div>
+    </div>
+
+    <div class="product-row">
+      <div class="prod-badge">
+        <div class="prod-badge-icon">👑</div>
+        <div class="prod-badge-name">HERO</div>
+      </div>
+      <div class="prod-main">
+        <div class="prod-name">CEO급 또는 연봉 2억↑</div>
+        <div class="prod-grade">챌린저 1인당 지정 4인 + 비지정 4인</div>
+      </div>
+      <div class="prod-price">300만원</div>
+      <div class="prod-days"><strong>7</strong>일</div>
+      <div class="prod-method">전문 IO 대면 인터뷰 · 전화 · AI·빅데이터 'Agre' · SNS 확인 · 학·경력 검증</div>
+    </div>
+
+    <div class="product-row">
+      <div class="prod-badge">
+        <div class="prod-badge-icon">⭐</div>
+        <div class="prod-badge-name">STAR</div>
+      </div>
+      <div class="prod-main">
+        <div class="prod-name">임원급 또는 연봉 1.5억↑</div>
+        <div class="prod-grade">챌린저 1인당 지정 3인 + 비지정 3인</div>
+      </div>
+      <div class="prod-price">200만원</div>
+      <div class="prod-days"><strong>6</strong>일</div>
+      <div class="prod-method">전화 · AI·빅데이터 'Agre' · SNS 확인 · 학·경력 검증</div>
+    </div>
+
+    <div class="product-row">
+      <div class="prod-badge">
+        <div class="prod-badge-icon">🎋</div>
+        <div class="prod-badge-name">BAMBOO</div>
+      </div>
+      <div class="prod-main">
+        <div class="prod-name">부장급 또는 연봉 1억↑</div>
+        <div class="prod-grade">챌린저 1인당 지정 3인 + 비지정 2인</div>
+      </div>
+      <div class="prod-price">100만원</div>
+      <div class="prod-days"><strong>5</strong>일</div>
+      <div class="prod-method">전화 · AI·빅데이터 'Agre' · 학·경력 검증</div>
+    </div>
+
+    <div class="product-row">
+      <div class="prod-badge">
+        <div class="prod-badge-icon">💎</div>
+        <div class="prod-badge-name">DIAMOND</div>
+      </div>
+      <div class="prod-main">
+        <div class="prod-name">과장급 또는 연봉 7천만원↑</div>
+        <div class="prod-grade">챌린저 1인당 지정 3인 + 비지정 1인</div>
+      </div>
+      <div class="prod-price">70만원</div>
+      <div class="prod-days"><strong>4</strong>일</div>
+      <div class="prod-method">전화 · AI·빅데이터 솔루션 'Agre'</div>
+    </div>
+
+    <div class="product-row">
+      <div class="prod-badge">
+        <div class="prod-badge-icon">🦅</div>
+        <div class="prod-badge-name">GULL</div>
+      </div>
+      <div class="prod-main">
+        <div class="prod-name">대리급 또는 연봉 5천만원↑</div>
+        <div class="prod-grade">지정 옵서버 1인당</div>
+      </div>
+      <div class="prod-price">20만원</div>
+      <div class="prod-days"><strong>3</strong>일</div>
+      <div class="prod-method">AI·빅데이터 솔루션 'Agre'</div>
+    </div>
+
+    <div class="product-row" style="border-radius:0 0 var(--radius) var(--radius);">
+      <div class="prod-badge">
+        <div class="prod-badge-icon">🎖</div>
+        <div class="prod-badge-name">SOLDIER</div>
+      </div>
+      <div class="prod-main">
+        <div class="prod-name">경력사원급 또는 연봉 3천만원↑</div>
+        <div class="prod-grade">지정 옵서버 1인당</div>
+      </div>
+      <div class="prod-price">10만원</div>
+      <div class="prod-days"><strong>3</strong>일</div>
+      <div class="prod-method">'Agre' (Agrément 평판검증시스템)</div>
+    </div>
+  </div>
+  <p class="products-note reveal visible">* 'Agre' : ㈜장군평판 연구진이 독자 개발한 고유의 AI 평판 검증 시스템 (Agrément) / 챌린저 : 대상자 / 옵서버 : 제보자</p>
+</section>
+
+<!-- ══ PROCESS ══════════════════════════════════════ -->
+<section id="process">
+  <div class="process-intro">
+    <div class="section-label reveal visible">10-Step Process</div>
+    <h2 class="section-title reveal reveal-delay-1 visible">평판조회 프로세스</h2>
+    <p class="reveal reveal-delay-2 visible">의뢰 접수부터 자료 삭제까지, 모든 단계가 철저히 관리됩니다.</p>
+  </div>
+
+  <div class="steps-grid reveal reveal-delay-2 visible">
+    <div class="step-card">
+      <div class="step-num-badge">①</div>
+      <div class="step-name">계약 체결</div>
+      <p class="step-desc">상품 선택 및 계약 체결. NDA 포함 기밀 계약으로 시작합니다.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">②</div>
+      <div class="step-name">여건 분석</div>
+      <p class="step-desc">직위별 직무와 입사지원서를 면밀히 검토합니다.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">③</div>
+      <div class="step-name">분석전략 수립</div>
+      <p class="step-desc">고객사 needs에 부합된 핵심 check-point를 설정합니다.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">④</div>
+      <div class="step-name">동의서 접수</div>
+      <p class="step-desc">챌린저 동의 확보 후 옵서버를 추천·확보합니다.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">⑤</div>
+      <div class="step-name">챌린저 리서치</div>
+      <p class="step-desc">대상자(챌린저)에 대한 다각도 정보 수집을 진행합니다.</p>
+      <span class="step-keyword">Challenger</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">⑥</div>
+      <div class="step-name">옵서버 리서치</div>
+      <p class="step-desc">제보자(옵서버)들을 개별 접촉, 구조화된 인터뷰를 실시합니다.</p>
+      <span class="step-keyword">Observer</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">⑦</div>
+      <div class="step-name">AI 데이터 분석</div>
+      <p class="step-desc">독자 개발 시스템 'Agre'로 수집 데이터를 분석·교차 검증합니다.</p>
+      <span class="step-keyword">Agre System</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">⑧</div>
+      <div class="step-name">회보서 작성</div>
+      <p class="step-desc">전문 IO에 의한 종합 판단 및 간결한 회보서를 작성합니다.</p>
+      <span class="step-keyword">Report</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">⑨</div>
+      <div class="step-name">고객사 결과보고</div>
+      <p class="step-desc">완성된 회보서를 고객사에 전달하고 결과 브리핑을 진행합니다.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">⑩</div>
+      <div class="step-name">자료 삭제</div>
+      <p class="step-desc">모든 수집 자료를 완전 삭제. 기밀 보호를 끝까지 지킵니다.</p>
+    </div>
+  </div>
+
+  <div class="process-terms reveal visible">
+    <div class="process-term"><strong>챌린저</strong> : 평판조회 대상자</div>
+    <div class="process-term"><strong>옵서버</strong> : 제보자 (전·현직 동료, 상사, 부하직원)</div>
+    <div class="process-term"><strong>'Agre'</strong> : ㈜장군평판 독자 개발 평판검증 시스템 (Agrément)</div>
+    <div class="process-term"><strong>회보서</strong> : 평판 결과 보고서</div>
+    <div class="process-term"><strong>IO</strong> : Information Officer (전문 분석관)</div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══════════════════════════════════ -->
+<section id="testimonials">
+  <div class="testimonials-intro">
+    <div class="section-label reveal visible">Client Interviews</div>
+    <h2 class="section-title reveal reveal-delay-1 visible">기업 인사담당자 인터뷰</h2>
+    <p class="section-desc reveal reveal-delay-2 visible">대기업·중견기업·스타트업 경영진이 직접 경험한 STAR_T의 차별점입니다.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal reveal-delay-1 visible">
+      <p class="testi-text">비용 대비 효과측면에서 회사에 큰 이익으로 'Agre'의 데이터 비교 분석 덕분에 채용시마다 반복되던 재채용이 사라졌음</p>
+      <div class="testi-from">【중소기업 경영자】</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2 visible">
+      <p class="testi-text">NG없는 선발로 경영진 만족도가 높음. 묻지마식 일방적 자기소개에 대한 검증과 평가로 면접의 질이 높아짐</p>
+      <div class="testi-from">【중견기업 인사담당자】</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3 visible">
+      <p class="testi-text">시간의 압박속에서 내실있는 인재분석으로 기대치 충족</p>
+      <div class="testi-from">【대기업 인사담당자】</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1 visible">
+      <p class="testi-text">신뢰성 담보는 레퍼런스 체크의 핵심인데 숨은 행간을 읽어 신뢰도까지 분석해 내는 능력과 역량에 놀라움</p>
+      <div class="testi-from">【대기업 인사담당자】</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2 visible">
+      <p class="testi-text">보고서가 군더더기 없이 간결하여 한 눈에 인재 채용여부를 결정할 수 있었음</p>
+      <div class="testi-from">【대기업 인사담당자】</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3 visible">
+      <p class="testi-text">역시 훈련된 요원들에 의한 수집, 분석, 평가로 퀄리티가 여느 보고서와 다름</p>
+      <div class="testi-from">【중견기업 인사담당자】</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1 visible">
+      <p class="testi-text">장황하기만 하고 요점이 없는 타 평판조회와는 달리 핵심만 분석하여 활용도가 높음</p>
+      <div class="testi-from">【대기업 인사담당자】</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2 visible">
+      <p class="testi-text">고도의 훈련을 받은 사람들이 수집하고 분석한 것을 느낄 수 있었음</p>
+      <div class="testi-from">【스타트업 경영자】</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INQUIRY ═══════════════════════════════════════ -->
+<section id="inquiry">
+  <div class="blob blob-1" style="opacity:.07;"></div>
+  <div class="blob blob-2" style="opacity:.06;"></div>
+
+  <div class="inquiry-wrap">
+    <div class="inquiry-info">
+      <div class="section-label reveal visible">Contact Us</div>
+      <h2 class="section-title reveal reveal-delay-1 visible">서비스 의뢰</h2>
+      <p class="inquiry-desc reveal reveal-delay-2 visible">
+        기업 채용 레퍼런스 체크부터 개인 평판 조회까지, 의뢰 내용을 보내주시면
+        24시간 이내에 담당자가 연락드립니다.
+      </p>
+
+      <a href="https://pf.kakao.com/_AdLxlG" target="_blank" class="kakao-btn reveal reveal-delay-3 visible">
+        <svg class="kakao-icon" viewBox="0 0 22 22" fill="none">
+          <path d="M11 2C5.477 2 1 5.582 1 10c0 2.71 1.645 5.1 4.131 6.6L4.2 20l4.1-2.18C9.07 17.94 10.02 18 11 18c5.523 0 10-3.582 10-8s-4.477-8-10-8z" fill="#3A1D1D"></path>
+        </svg>
+        카카오톡으로 상담하기
+      </a>
+
+      <ul class="contact-list reveal reveal-delay-4 visible">
+        <li><div class="ci">📞</div> 0507-1327-9532</li>
+        <li><div class="ci">📍</div> 서울 강남구 테헤란로 79길 6, 5층</li>
+        <li><div class="ci">🕐</div> 평일 09:00 – 18:00 KST</li>
+        <li><div class="ci">🔒</div> NDA 체결 후 100% 기밀 보장</li>
+      </ul>
+    </div>
+
+    <div class="reveal reveal-delay-2 visible">
+      <div class="form-card">
+        <div class="form-title">의뢰 신청서</div>
+
+        <div class="type-tabs">
+          <button class="type-tab active" onclick="switchType(this,&#39;corporate&#39;)">🏢 기업 의뢰</button>
+          <button class="type-tab" onclick="switchType(this,&#39;personal&#39;)">👤 개인 의뢰</button>
+        </div>
+
+        <form id="inquiryForm" onsubmit="submitForm(event)">
+          <!-- Corporate fields -->
+          <div id="corp-fields" style="">
+            <div class="form-row">
+              <div class="form-group">
+                <label>회사명 *</label>
+                <input type="text" placeholder="㈜ 회사명" required="">
+              </div>
+              <div class="form-group">
+                <label>업종</label>
+                <input type="text" placeholder="서비스업 / IT / 제조 등">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>담당자 성함 *</label>
+                <input type="text" placeholder="홍길동" required="">
+              </div>
+              <div class="form-group">
+                <label>직위</label>
+                <input type="text" placeholder="인사팀장">
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal fields -->
+          <div id="pers-fields" style="display: none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label>성함 *</label>
+                <input type="text" placeholder="홍길동" required="">
+              </div>
+              <div class="form-group">
+                <label>의뢰 사유</label>
+                <input type="text" placeholder="단기고용, 부동산거래, 신용거래 등">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>이메일 *</label>
+              <input type="email" placeholder="name@company.com" required="">
+            </div>
+            <div class="form-group">
+              <label>연락처 *</label>
+              <input type="tel" placeholder="010-0000-0000" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>희망 상품</label>
+            <select>
+              <option value="">선택해주세요</option>
+              <option>HERO — CEO급 / 연봉 2억↑ (300만원, 7일)</option>
+              <option>STAR — 임원급 / 연봉 1.5억↑ (200만원, 6일)</option>
+              <option>BAMBOO — 부장급 / 연봉 1억↑ (100만원, 5일)</option>
+              <option>DIAMOND — 과장급 / 연봉 7천↑ (70만원, 4일)</option>
+              <option>GULL — 대리급 / 연봉 5천↑ (20만원, 3일)</option>
+              <option>SOLDIER — 경력사원급 / 연봉 3천↑ (10만원, 3일)</option>
+              <option>年 단위 계약 희망 (별도 협의)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>의뢰 내용</label>
+            <textarea placeholder="검증 대상의 직급, 조회 예상 인원, 희망 회보 기한, 특별히 확인하고 싶은 사항 등을 간략히 적어주세요."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>상담 희망 방법</label>
+            <select>
+              <option value="">선택해주세요</option>
+              <option>전화</option>
+              <option>카카오톡</option>
+              <option>이메일</option>
+              <option>방문</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-btn">의뢰서 제출하기 →</button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">✅</div>
+          <div class="success-msg">접수되었습니다.<br>24시간 이내에 담당자가 연락드리겠습니다.</div>
+          <p style="margin-top:1rem;font-size:.82rem;color:var(--muted);">긴급 문의는 카카오톡 또는 전화(0507-1327-9532)로 연락 주세요.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo-wrap">
+        <div class="logo-icon" style="width:32px;height:32px;">
+          <svg viewBox="0 0 26 26" fill="none" width="20" height="20">
+            <polygon points="13,1 15.6,9 24,9 17.4,14.4 19.8,22.5 13,17.5 6.2,22.5 8.6,14.4 2,9 10.4,9" fill="white" opacity="0.9"></polygon>
+            <circle cx="12" cy="12" r="5.5" fill="none" stroke="#E8712A" stroke-width="1.8"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="#E8712A" stroke-width="2.2" stroke-linecap="round"></line>
+          </svg>
+        </div>
+        <span class="logo-text" style="font-size:1.3rem;">STAR<span style="color:var(--orange-light);">_T</span></span>
+      </div>
+      <p class="footer-tagline">
+        소리없이 듣고, 형체없이 보라.<br>
+        국가대표 레퍼런스 체크 전문기관
+      </p>
+      <div class="footer-company">
+        <strong>운영사 : ㈜장군평판</strong><br>
+        대표이사 : 김서연<br>
+        서울특별시 강남구 테헤란로 79길 6, 5층<br>
+        사업자 등록번호 : 848-88-03197<br>
+        전화번호 : 0507-1327-9532
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#products">HERO (CEO급)</a></li>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#products">STAR (임원급)</a></li>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#products">BAMBOO (부장급)</a></li>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#products">DIAMOND (과장급)</a></li>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#products">GULL (대리급)</a></li>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#products">SOLDIER (사원급)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#about">회사 소개</a></li>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#process">평판조회 프로세스</a></li>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#testimonials">고객 인터뷰</a></li>
+        <li><a href="file:///Users/gimseoyeon/Claude/Projects/reference/credo.html#inquiry">서비스 의뢰</a></li>
+        <li><a href="https://pf.kakao.com/_AdLxlG" target="_blank">카카오톡 상담</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 STAR_T. Operated by ㈜장군평판. All rights reserved.</p>
+    <span class="footer-badge">보안 · 기밀 · 전문성</span>
+  </div>
+</footer>
+
+<!-- ══ FLOATING KAKAO ════════════════════════════════ -->
+<a href="https://pf.kakao.com/_AdLxlG" target="_blank" class="float-kakao show" id="floatKakao">
+  <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+    <path d="M11 2C5.477 2 1 5.582 1 10c0 2.71 1.645 5.1 4.131 6.6L4.2 20l4.1-2.18C9.07 17.94 10.02 18 11 18c5.523 0 10-3.582 10-8s-4.477-8-10-8z" fill="#3A1D1D"></path>
+  </svg>
+  카카오 상담
+</a>
+
+<script>
+  /* ── Navbar scroll ─────────────────────── */
+  const navbar   = document.getElementById('navbar');
+  const floatKakao = document.getElementById('floatKakao');
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY > 80;
+    navbar.classList.toggle('scrolled', s);
+    floatKakao.classList.toggle('show', s);
+  });
+
+  /* ── Scroll reveal ─────────────────────── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  /* ── Counter animation ─────────────────── */
+  const countObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, target = parseInt(el.dataset.target), dur = 1600, t0 = performance.now();
+      const tick = now => {
+        const p = Math.min((now - t0) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(ease * target);
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+      };
+      requestAnimationFrame(tick);
+      countObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.count').forEach(el => countObs.observe(el));
+
+  /* ── Rotating taglines (3s interval) ──── */
+  const taglines = [
+    '"평판조회 시장에 드디어 진짜가 나타났다"',
+    '"신뢰가는 국가대표급 평판조회 기업"',
+    '"글로벌 대기업은 물론, 스타트업 회사도 레퍼런스 체크는 필수"',
+    '"세상엔 공짜는 없다. 저렴한 데는 다 그만한 이유가 있다."',
+    '"국내 최고 수준의 신뢰도 검증 시스템 \'Agre\' 독자 개발"',
+    '"소리없이 듣고, 형체없이 보라."'
+  ];
+  let idx = 0;
+  const tagEl = document.getElementById('rotatingTagline');
+  setInterval(() => {
+    tagEl.style.opacity = '0';
+    setTimeout(() => {
+      idx = (idx + 1) % taglines.length;
+      tagEl.textContent = taglines[idx];
+      tagEl.style.opacity = '1';
+    }, 420);
+  }, 3000);
+
+  /* ── Form type switch ──────────────────── */
+  function switchType(btn, type) {
+    document.querySelectorAll('.type-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('corp-fields').style.display = type === 'corporate' ? '' : 'none';
+    document.getElementById('pers-fields').style.display = type === 'personal'  ? '' : 'none';
+  }
+
+  /* ── Form submit ───────────────────────── */
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('inquiryForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+
+  /* ── Smooth scroll ─────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const t = document.querySelector(id);
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+
+</body></html>
